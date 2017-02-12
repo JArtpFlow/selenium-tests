@@ -6,7 +6,7 @@ const webdriver = require('selenium-webdriver'),
 
 const expect = require('chai').expect;
 
-test.describe('Login litecart', function() {
+test.describe('Check stickers', function() {
     let driver;
 
     test.before(function() {
@@ -18,7 +18,7 @@ test.describe('Login litecart', function() {
         });
     });
 
-    test.it('should click all menu and submenu', function(done) {
+    test.it('Each product should have one sticker', function(done) {
         driver.get('http://localhost/litecart');
         driver.findElement(By.id('logotype-wrapper'));
 
