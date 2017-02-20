@@ -38,12 +38,16 @@ test.describe('Check product on main page and product page', function() {
         mainName.then(name => {name.getText().then(mainName => {
         regPrice.getCssValue('font-size').then(regPriceFont => {
         campPrice.getCssValue('font-size').then(campPriceFront => {
+        campPrice.getCssValue('color').then(campPriceColor1 => {
         campPrice.getAttribute('tagName').then(campPriceTag => {
         regPrice.getAttribute('tagName').then(regPriceTag => {
 
         expect(parseInt(regPriceFont)).to.lessThan(parseInt(campPriceFront));
         expect(campPriceTag).to.equal('STRONG');
         expect(regPriceTag).to.equal('S');
+        expect(campPriceColor1).to.equal('rgba(204, 0, 0, 1)');
+
+
 
         prodMain.click();  // Переход на страницу товара
 
@@ -56,6 +60,7 @@ test.describe('Check product on main page and product page', function() {
         campPrice.then(name => {name.getText().then(prodCampPrice => {
         regPrice.getCssValue('font-size').then(regPriceFont => {
         campPrice.getCssValue('font-size').then(campPriceFront => {
+        campPrice.getCssValue('color').then(campPriceColor2 => {
         campPrice.getAttribute('tagName').then(campPriceTag => {
         regPrice.getAttribute('tagName').then(regPriceTag => {
 
@@ -65,8 +70,12 @@ test.describe('Check product on main page and product page', function() {
         expect(mainRegPrice).to.equal(prodRegPrice);
         expect(mainCampPrice).to.equal(prodCampPrice);
         expect(mainName).to.equal(prodName);
+        expect(campPriceColor2).to.equal('rgba(204, 0, 0, 1)');
 
-        }); }); }); }); }); }); }); }); }); }); }); });  }); });  }); }); }); }); }); });
+        expect(campPriceColor1).to.equal(campPriceColor2);
+
+
+        }); }); }); }); }); }); }); }); }); }); }); });  }); });  }); }); }); }); }); }); }); });
 
     });
 
